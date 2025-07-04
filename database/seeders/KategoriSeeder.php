@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\kategori;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Kategori;
 use Illuminate\Database\Seeder;
 
 class KategoriSeeder extends Seeder
@@ -13,32 +12,14 @@ class KategoriSeeder extends Seeder
      */
     public function run(): void
     {
-        kategori::create([
-            "nama"=> "Elektronik",
-            "slug"=> "elektronik",
-            "created_at"=> now(),
-            "updated_at"=> now(),
-            ]);
-            
-        kategori::create([
-            "nama"=> "Pakaian",
-            "slug"=> "pakaian",
-            "created_at"=> now(),
-            "updated_at"=> now(),
-            ]);
-        
-        kategori::create([
-            "nama"=> "Kehidupan",
-            "slug"=> "kehidupan",
-            "created_at"=> now(),
-            "updated_at"=> now(),
-            ]);
+        $data = [
+            ['nama' => 'Handphone', 'slug' => 'handphone'],
+            ['nama' => 'Jam Tangan', 'slug' => 'jam-tangan'],
+            ['nama' => 'Televisi', 'slug' => 'televisi'],
+        ];
 
-        kategori::create([
-            "nama"=> "Makanan Minuman",
-            "slug"=> "makanan-minuman",
-            "created_at"=> now(),
-            "updated_at"=> now(),
-            ]);   
+        foreach ($data as $item) {
+            Kategori::create($item);
+        }
     }
 }

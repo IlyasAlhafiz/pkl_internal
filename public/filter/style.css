@@ -1,0 +1,29 @@
+#product-container.animate-exit {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  filter: blur(4px);
+  transition: all 0.4s ease;
+}
+
+#product-container.animate-enter {
+  opacity: 0;
+  animation: animateEnter 0.6s ease-out forwards;
+}
+
+@keyframes animateEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}

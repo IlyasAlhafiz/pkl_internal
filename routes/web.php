@@ -49,9 +49,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', is
 
 Route::group(['middleware' => ['auth']],function(){
     Route::post('/order', [EcommerceController::class, 'createOrder'])->name('order.create');
-    Route::post('/checkout', [EcommerceController::class, 'checkOut'])->name('order.checkout');
+    Route::post('/checkout', [EcommerceController::class, 'checkOut'])->name('checkout');
     Route::get('/my-orders', [EcommerceController::class, 'myOrders'])->name('orders.myOrders');
     Route::get('/my-orders/{id}', [EcommerceController::class, 'orderDetail'])->name('orders.detail');
     Route::post('/order/update-quantity', [EcommerceController::class, 'updateQuantity'])->name('order.update-quantity');
     Route::post('/order/remove-item', [EcommerceController::class, 'removeItem'])->name('order.remove-item');
 });
+
+Route::post('/produk/filter', [EcommerceController::class, 'filter'])->name('produk.filter');
+Route::get('/produk/{id}', [EcommerceController::class, 'show'])->name('produk.show');
